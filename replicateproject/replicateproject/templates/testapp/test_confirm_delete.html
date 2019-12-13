@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html'%}
+        {% block body_block%}
+
+           <h1>ARE SURE TO DELETE{{test.name}}</h1>
+           {% for test in test_list %}
+               <form  method="post">
+                 {%csrf_token%}
+                 <input type="submit" class="btn btn-lg btn-danger " value="delete ">
+                 <a href="/{{test.id}}" class= "btn btn-lg btn-sucess"> cancel</a>
+               </form>
+            {% endfor%}
+           {% endblock%}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html'%}
+        {% block body_block%}
+           <h1> TEST INFORMATION</h1>
+              <table  border='2'>
+                <thead>
+                  <th>NAME</th>
+                  <th>DETAIL</th>
+                  <th>ADD TO</th>
+                  <th>DELETE</th>
+                </thead>
+              {% for test in test_list %}
+                <tr>
+                  <td>{{test.name|upper}}</td>
+                  <td><a href="/{{test.id }}"> detail</a>  </td>
+                  <td>  <a href="/create/{{test.id}}">create </a>  </td>
+                  <td> <a href="/delete/{{test.id}}"> delete</a> </td>
+                </tr>
+               {% endfor%}
+             </table><br><br><br>
+
+
+           {% endblock%}
